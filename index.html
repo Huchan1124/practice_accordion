@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.css' integrity='sha512-E+53kXnJyuZFSz75xSmTfCpUNj3gp9Bd80TeQQMTPJTVWDRHPOpEYczGwWtsZXvaiz27cqvhdH8U+g/NMYua3A==' crossorigin='anonymous'/>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="faq">
+        <button class="accordion">Section 1<i class="fas fa-plus"></i></button>
+        <div class="panel">
+            <p>1Lorem ipsum...</p>
+        </div>
+
+        <button class="accordion ">Section 2<i class="fas fa-plus"></i></button>
+        <div class="panel">
+            <p>2Lorem ipsum...</p>
+        </div>
+
+        <button class="accordion">Section 3<i class="fas fa-plus"></i></button>
+        <div class="panel">
+            <p>3Lorem ipsum...</p>
+        </div>
+
+
+    </div>
+
+    <script>
+        const acc = document.querySelectorAll(".accordion");
+       
+        const accArry = [...acc];
+     
+
+        accArry.forEach((item)=>{
+       
+        item.addEventListener('click', function(e){
+          
+        
+           const activeItem = document.querySelector('.accordion.active');
+             
+           const panelDom = this.nextElementSibling;
+           
+
+           if (activeItem != null){
+            activeItem.classList.remove('active');
+           }
+
+            this.classList.add('active');
+
+           
+           
+            if (panelDom.style.display === '') {
+                panelDom.style.display = 'block';
+                e.target.children[0].className = 'fas  fa-minus';
+            } else {
+               panelDom.style.display = '' ;
+               e.target.children[0].className = 'fas  fa-plus';
+           } 
+
+               }
+              
+            )
+        })
+   
+ 
+     
+    </script>
+    
+
+</body>
+
+</html>
